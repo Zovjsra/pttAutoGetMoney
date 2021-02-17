@@ -4,17 +4,22 @@ from getpass import getpass
 import yaml
 import os
 
+targetWord = ['[發錢]', '(發錢)', '（發錢）', '發錢！']
 
 loginId = ''
 loginPw = ''
 
 if __name__ == "__main__":
     bot = PTT.API()
+
+    # 載入儲存的帳號密碼
     if (os.path.isfile('loginInfo.yaml')):
         with open('loginInfo.yaml', 'r', encoding='utf-8') as f:
             data = yaml.load(f, Loader=yaml.FullLoader)
             loginId = data['id']
             loginPw = data['passwd']
+
+    # 要求輸入帳號密碼
     if (loginId == '' or loginPw == ''):
         while True:
             try:
@@ -33,8 +38,9 @@ if __name__ == "__main__":
                             'passwd': loginPw
                         }, f)
                 break
+
     bot.login(loginId, loginPw)
-    targetWord = ['[發錢]', '(發錢)', '（發錢）', '發錢！']
+
     lastSearch = bot.get_newest_index(PTT.data_type.index_type.BBS, 'Gossiping')
     pushedAid = []
     while (True):
@@ -67,5 +73,7 @@ if __name__ == "__main__":
                 else:
                     break
             pass
+
     bot.logout()
+
     pass
