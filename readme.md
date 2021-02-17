@@ -10,6 +10,13 @@
 
 ## 使用方法
 
+需安裝 python3 環境，並安裝必要的套件
+```bash
+pip install -r requirements.txt
+```
+
+安裝完套件之後就可以執行程式
+
 ```bash
 python main.py
 ```
