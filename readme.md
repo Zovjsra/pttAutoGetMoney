@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
-在 UNIX 環境下可以使用 nohup 背景執行
+在 Linux 環境下可以使用 nohup 背景執行
 ```bash
 nohup python main.py &
 ```
